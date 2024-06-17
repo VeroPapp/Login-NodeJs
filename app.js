@@ -1,41 +1,34 @@
-//1 - invocamos a express
-const express = require("express");
+// 1- invocamos express
+const express = require('express');
 const app = express();
 
-//2 - seteamos urlencoded para capturar los datos del formulario 
+// 2- seteamos urlencoded para capturar los datos del formulario
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 
-//3 - invocar a dotenv
-const dotenv = require("dotenv");
+// 3- invocamos dotenv
+const dotenv = require('dotenv');
 dotenv.config({path:'./env/.env'});
 
-//4 - seteamos el directorio public
+// 4- seteamos el directorio public
 app.use('/resources', express.static('public'));
-app.use('/resources', express.static(__dirname + 'public' ));
+app.use('/resources', express.static(__dirname + '/public'));
 
-//5 - motor de plantillas
+// 5- establecemos el motor de plantillas
 app.set('view engine', 'ejs');
 
-//6 - invocamos a bcryptjs
+// 6- modulo para el hashing de psw - bcryptjs
 const bcryptjs = require('bcryptjs');
 
-//7 - configuramos las variables de sesión
+// 7- variables de sesion
 const session = require('express-session');
 app.use(session({
-    secret: 'secret',
+    secret:'secret',
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: true,
 }));
 
-//8 - invocamos al modulo de conexión a la bs
-const connection = require('./database/db');
-
-
-app.get('/', (req, res)=>{
-    res.send('Holis');
-}) 
 
 app.listen(3000, (req, res)=>{
-    console.log("Server running on port 3000");
+    console.log('Servidor corriendo en puerto 3000');
 })
