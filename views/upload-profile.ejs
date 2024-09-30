@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir Foto de Perfil</title>
+    <link rel="stylesheet" href="resources/css/upload-profile-pic.css">
+</head>
+<body>
+    <div class="upload-container">
+        <h1>Subir Foto de Perfil</h1>
+        <form id="upload-form" action="/upload-profile-pic" method="POST" enctype="multipart/form-data">
+            <input type="file" name="profilePic" id="profilePic" accept="image/*" required>
+            <button type="submit">Subir Foto</button>
+        </form>
+        <div id="status"></div>
+    </div>
+
+    <script>
+        document.getElementById('upload-form').onsubmit = function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+
+            fetch('/upload-profile-pic', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById('status').textContent = 'Foto subida correctamente. Redirigiendo al dashboard...';
+                    setTimeout(() => {
+                        window.location.href = '/dashboard';
+                    }, 2000); // Espera 2 segundos antes de redirigir
+                } else {
+                    document.getElementById('status').textContent = 'Error al subir la foto. Intenta de nuevo.';
+                }
+            })
+            .catch(err => {
+                console.error(err);
+                document.getElementById('status').textContent = 'Hubo un error, por favor intenta nuevamente.';
+            });
+        }
+    </script>
+</body>
+</html>

@@ -2,8 +2,8 @@ arreglar el problema de la comparacion de las contraseñas
 
 hacer que no se pueda repetir el mail y el nombre
 
-cambiar los nombres de las variables para que esten mas acorde
-
 acomodar las vistas
 
-crear el dashboard
+acomodar el dashboard
+
+ordenar los archivos (controladores?)

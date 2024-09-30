@@ -1,6 +1,7 @@
 // 1 - Invocamos a Express
 const express = require('express');
 const app = express();
+const multer = require('multer');
 
 //2 - Para poder capturar los datos del formulario (sin urlencoded nos devuelve "undefined")
 app.use(express.urlencoded({extended:false}));
@@ -41,6 +42,18 @@ const connection = require('./database/db');
 		res.render('register');
 	})
 
+	app.get('/upload-profile',(req, res)=>{
+		res.render('upload-profile');
+	})
+
+	app.get('/dashboard', (req, res) => {
+		/*if (!req.isAuthenticated()) {
+			return res.redirect('/login');
+		}
+		res.sendFile(path.join(__dirname, 'views', 'dashboard.ejs'));*/
+		res.render('dashboard');
+	});
+
 //10 - Método para la REGISTRACIÓN
 app.post('/register', async (req, res)=>{
 	const name = req.body.name;
@@ -63,6 +76,40 @@ app.post('/register', async (req, res)=>{
         }
 	});
 })
+
+// Configuración de multer para subir archivos
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'uploads/'); // Carpeta donde se guardarán las imágenes
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + path.extname(file.originalname)); // Nombre único para cada archivo
+    }
+});
+
+const upload = multer({ storage: storage });
+
+// Ruta para subir la foto de perfil
+app.post('/upload-profile-pic', upload.single('profilePic'), (req, res) => {
+    if (!req.file) {
+        return res.status(400).json({ success: false, message: 'Por favor selecciona una imagen.' });
+    }
+
+    // Aquí podrías guardar la ruta de la imagen en la base de datos si es necesario
+    const profilePicUrl = `/uploads/${req.file.filename}`;
+
+    // Auto-login o cualquier otra acción necesaria
+    // Por simplicidad, asumimos que el usuario se loguea automáticamente
+
+    res.json({ success: true, profilePicUrl: profilePicUrl });
+});
+
+// Ruta para servir el dashboard después de subir la imagen
+app.get('/dashboard', (req, res) => {
+    // Aquí deberías comprobar si el usuario está logueado
+    res.sendFile(path.join(__dirname, 'dashboard.ejs'));
+});
+
 
 //11 - Metodo para la autenticacion
 app.post('/auth', async (req, res)=> {
@@ -144,6 +191,9 @@ app.get('/logout', function (req, res) {
 	  res.redirect('/') // siempre se ejecutará después de que se destruya la sesión
 	})
 });
+
+
+
 
 
 app.listen(3000, (req, res)=>{
