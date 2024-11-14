@@ -1,38 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Login</title>
-	<link rel="stylesheet" href="resources/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/login-style.css">
 </head>
 <body>
-	<div class="login-form">
-		<h1>Ingresa a tu cuenta</h1>
-		<form action="auth" method="POST">
-			<input type="text" name="name" placeholder="Usuario" autofocus required>
-			<input type="password" name="pass" placeholder="Contraseña" required>
-			<input type="submit" class="btn-login" value="Ingresar">
-		</form>
-		<a href="register" class="btn-register">Registrarse</a>
-		
-		
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <div class="login-box">
+        <img src="img\logo-login.jpeg" alt="Logo">
+        <h2>Iniciar sesión</h2>
+        <form id="formLogin" action="/login" method="POST">
+            <div class="mb-3">
+                <input type="text" class="form-control" id="user" name="user" placeholder="Usuario" > 
+                <label for="user"></label>
+            </div>
+            <div class="mb-3">
+                <input type="password" class="form-control" id="pass" name="pass" placeholder="Constraseña" >
+                <label for="pass"></label>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Iniciar sesión</button>
+            <b type="button" > <!--unicamente para que haya un espacio entre los botones--> </b>
+            <a href="/register" type="button" class="btn btn-primary w-100">Registrarse</a>
+        </form>
+    </div>
 
-   <% if (typeof alert != "undefined")  { %>
-    <script>
-    Swal.fire({
-      title:'<%= alertTitle %>',
-      text:'<%= alertMessage %>',
-      icon:'<%= alertIcon %>',
-      showConfirmButton: <%= showConfirmButton %>,
-      timer: <%= timer %>
-    }).then(()=>{
-      window.location='/<%= ruta %>'
-    })
-    </script>
-  <% } %>
-	</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <% if(alert) { %>
+        <script>
+          swal.fire({
+            title: "<%= alertTitle %>",
+            text: "<%= alertMessage %>",
+            icon: "<%= alertIcon %>",
+            showConfirmButton: <%= showConfirmButton %>, // Este no debe ir entre comillas
+            timer: <%= timer %> // Este también no debe ir entre comillas
+          }).then(() =>{
+            window.location = "/<%= ruta %>" // Eliminar el espacio después del "/"
+          })
+        </script>
+      <% } %>
+      
+
 </body>
 </html>

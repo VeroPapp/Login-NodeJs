@@ -1,9 +1,0 @@
-arreglar el problema de la comparacion de las contraseñas
-
-hacer que no se pueda repetir el mail y el nombre
-
-acomodar las vistas
-
-acomodar el dashboard
-
-ordenar los archivos (controladores?)

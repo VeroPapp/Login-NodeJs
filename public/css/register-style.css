@@ -1,0 +1,17 @@
+/* Estilo personalizado para la página */
+body {
+    background-image: url('https://static.videezy.com/system/resources/thumbnails/000/046/284/original/270_man_playing_guitar_1.jpg'); /* Cambia esta ruta por la imagen que desees */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; /* Altura total de la pantalla */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilo adicional para el formulario */
+.card {
+    background-color: rgba(255, 255, 255, 0.767); /* Fondo semi-transparente */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Sombras para dar profundidad */
+}

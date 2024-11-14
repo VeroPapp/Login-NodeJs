@@ -1,0 +1,30 @@
+body {
+    background-image: url('../img/background-login.jpg');
+    background-size: cover;
+    background-position: center;
+    /*background-color: #17243d;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.login-box {
+    width: 380px; /* Ajusta el tamaño del contenedor */
+    padding: 40px;
+    background-color: rgba(15, 36, 69, 0.827);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+.login-box img {
+    width: 200px; /* Ajusta el tamaño del logo */
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 5px;
+}
+.login-box h2 {
+    font-size: 28px; /* Ajusta el tamaño del título */
+    margin-bottom: 30px;
+    color: aliceblue;
+}
