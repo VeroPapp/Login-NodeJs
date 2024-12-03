@@ -1,0 +1,227 @@
+body {
+    font-size: 0.875rem;
+}
+
+/* Color de fondo de la barra de navegación lateral */
+.sidebar {
+    background-color: #0c0e1a;
+}
+
+/* Color de los enlaces de la barra de navegación */
+.sidebar .nav-link {
+    color: #adb5bd;
+}
+
+/* Color de los enlaces activos */
+.sidebar .nav-link.active {
+    color: #ffffff;
+    background-color: #0fa4df; 
+}
+
+/* Color al pasar el cursor por encima de los enlaces */
+.sidebar .nav-link:hover {
+    color: #ffffff;
+    background-color: #495057;
+}
+
+/* Estilo adicional para que el sidebar se mantenga fijo */
+.sidebar-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    height: calc(100vh - 48px);
+    padding-top: 0.5rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* Estilo del contenido principal */
+.content {
+    padding-top: 20px;
+}
+
+
+
+/* Estilo de la img de perfil */
+
+.perfil-img {
+    width: 150px; 
+    height: 150px; /* Debe ser igual al ancho para que sea circular */
+    border-radius: 50%; 
+    object-fit: cover;
+    display: block;
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+    border: 2px solid #ccc; 
+}
+
+.perfil-container {
+    text-align: center;
+    padding: 20px 0; /* Espacio arriba y abajo dentro del contenedor */
+}
+
+
+
+
+/* Estilo de la seccion para subir canciones */
+
+.upload-section {
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+          
+.upload-section form div {
+    margin-bottom: 15px;
+}
+          
+.upload-section label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+          
+.upload-section input,
+.upload-section select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+
+
+/* Estilo de la seccion para mostrar canciones*/
+
+.content-section {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+          
+.content-section h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #333;
+}
+          
+.items-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacio entre los elementos */
+}
+          
+.item {
+    display: flex;
+    justify-content: space-between; /* Espacia el contenido y los botones */
+    align-items: center; /* Alinea verticalmente */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+}
+          
+.item p {
+    margin: 5px 0;
+    flex: 1; /* Ocupa el espacio restante */
+}
+              
+          
+.buttons-container {
+    display: flex;
+    gap: 10px; /* Espacio entre los botones */
+}
+              
+.btn {
+    padding: 5px 8px;
+    font-size: 0.8rem; /* Botones más pequeños */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+              
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+}
+              
+.btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+}
+              
+.btn-delete {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+
+/* Estilo de la seccion para mostrar albums*/
+
+.album-cards-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las tarjetas se ajusten a la pantalla */
+    gap: 20px; /* Espacio entre las tarjetas */
+    justify-content: space-between; /* Distribuye uniformemente */
+}
+  
+.card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para un efecto visual */
+    width: 100%;
+    max-width: 300px; /* Tamaño máximo de cada tarjeta */
+    overflow: hidden;
+}
+  
+
+.card-img {
+    width: 100%;
+    height: 150px; /* Altura fija para la imagen */
+    object-fit: contain; /* Ajusta la imagen sin distorsión */
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+  
+.card-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+  
+.card-body {
+    padding: 15px;
+}
+  
+.song-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+}
+  
+.song-list li {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+}
+  
+.song-list li:last-child {
+    border-bottom: none;
+}
+  
+.buttons-container {
+    display: flex;
+    justify-content: flex-end; /* Botones alineados a la derecha */
+    gap: 10px; /* Espacio entre los botones */
+}
+
+  
+
+
+
